@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func postExecutionLog(start time.Time, message string, success int, logUrl string, apiKey string) (*http.Response, error) {
+func PostExecutionLog(start time.Time, message string, success int, logUrl string, apiKey string) (*http.Response, error) {
 	end := time.Now().Unix()
 	elapsed := time.Since(start) / 1000000
 	data := map[string]interface{}{
