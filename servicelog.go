@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func postExecutionLog(start time.Time, message string, success int, logUrl string, apiKey string) {
+func postExecutionLog(start time.Time, message string, success int, logUrl string, apiKey string) error {
 	end := time.Now().Unix()
 	elapsed := time.Since(start) / 1000000
 	data := map[string]interface{}{
@@ -19,16 +19,14 @@ func postExecutionLog(start time.Time, message string, success int, logUrl strin
 	}
 	json_data, err := json.Marshal(data)
 	if err != nil {
-		notify.teamsError(err)
-		panic(err)
+		return err
 	}
 
 	req, err := http.NewRequest("POST", logUrl, bytes.NewBuffer(json_data))
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+apiKey)
 	if err != nil {
-		notify.teamsError(err)
-		panic(err)
+		return err
 	}
 	client := &http.Client{Timeout: time.Second * 10}
 	client.Do(req)
