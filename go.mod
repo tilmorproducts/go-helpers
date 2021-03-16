@@ -1,3 +1,3 @@
-module github.com/tilmorproducts/go-helpers
+module github.com/tilmorproducts/gohelpers
 
 go 1.15
