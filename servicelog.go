@@ -1,4 +1,4 @@
-package servicelog
+package gohelpers
 
 import (
 	"bytes"
