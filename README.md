@@ -1,3 +1,3 @@
 # go-helpers
 
-Helper functions for reuse at tilmor
+Helper functions for reuse
