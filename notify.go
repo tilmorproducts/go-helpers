@@ -1,9 +1,10 @@
 package gohelpers
 
-import goteamsnotify "github.com/atc0005/go-teams-notify"
+import goteamsnotify "github.com/atc0005/go-teams-notify/v2"
+import messageCard "github.com/atc0005/go-teams-notify/v2/messagecard"
 
 func TeamsSuccess(message string, title string, channel string) {
-	mstClient := goteamsnotify.NewClient()
+	mstClient := goteamsnotify.NewTeamsClient()
 	msgCard := goteamsnotify.NewMessageCard()
 	msgCard.Title = title
 	msgCard.Text = message
@@ -12,7 +13,7 @@ func TeamsSuccess(message string, title string, channel string) {
 }
 
 func TeamsError(err error, title string, channel string) {
-	mstClient := goteamsnotify.NewClient()
+	mstClient := goteamsnotify.NewTeamsClient()
 	msgCard := goteamsnotify.NewMessageCard()
 	msgCard.Title = title
 	msgCard.Text = "Error message: " + err.Error()
@@ -21,7 +22,7 @@ func TeamsError(err error, title string, channel string) {
 }
 
 func TeamsInfo(message string, title string, channel string) {
-	mstClient := goteamsnotify.NewClient()
+	mstClient := goteamsnotify.NewTeamsClient()
 	msgCard := goteamsnotify.NewMessageCard()
 	msgCard.Title = title
 	msgCard.Text = message
