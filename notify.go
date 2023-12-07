@@ -1,7 +1,6 @@
 package gohelpers
 
 import goteamsnotify "github.com/atc0005/go-teams-notify/v2"
-import messageCard "github.com/atc0005/go-teams-notify/v2/messagecard"
 
 func TeamsSuccess(message string, title string, channel string) {
 	mstClient := goteamsnotify.NewTeamsClient()
